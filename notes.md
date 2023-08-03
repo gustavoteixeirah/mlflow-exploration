@@ -1,5 +1,10 @@
 
 ### Experiments
+
+`mlflow server --serve-artifacts -h 0.0.0.0 -p 5000`
+
+
+
 Experiment: tracking of model runs
 MLflow client...
 MLflow module...
