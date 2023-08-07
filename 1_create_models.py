@@ -5,13 +5,14 @@ from mlflow import MlflowClient
 import os
 
 
-os.environ["MLFLOW_TRACKING_URI"] = ""
-os.environ["DATABRICKS_HOST"] = ""
-os.environ["DATABRICKS_TOKEN"] = ""
+os.environ["MLFLOW_TRACKING_URI"] = os.getenv("MLFLOW_TRACKING_URI", "databricks")
+os.environ["DATABRICKS_HOST"] = os.getenv("DATABRICKS_HOST")
+os.environ["DATABRICKS_TOKEN"] = os.getenv("DATABRICKS_TOKEN")
+
 mlflow.set_registry_uri("databricks")
+mlflow.set_tracking_uri(os.environ["MLFLOW_TRACKING_URI"] )
 
 mlflow_client = MlflowClient()
-
 
 def print_registered_models_info(r_models):
     if (r_models):

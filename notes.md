@@ -3,7 +3,7 @@
 
 `mlflow server --serve-artifacts -h 0.0.0.0 -p 5000`
 
-
+load envars to env: `export $(envsubst < .env)`
 
 Experiment: tracking of model runs
 MLflow client...

@@ -10,9 +10,9 @@ from sklearn.datasets import fetch_california_housing
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 
-os.environ["MLFLOW_TRACKING_URI"] = ""
-os.environ["DATABRICKS_HOST"] = ""
-os.environ["DATABRICKS_TOKEN"] = ""
+os.environ["MLFLOW_TRACKING_URI"] = "databricks"
+os.environ["DATABRICKS_HOST"] = os.getenv("DATABRICKS_HOST")
+os.environ["DATABRICKS_TOKEN"] = os.getenv("DATABRICKS_TOKEN")
 mlflow.set_registry_uri("databricks")
 mlflow.sklearn.autolog(registered_model_name="Forecasting Wind Power")
 
